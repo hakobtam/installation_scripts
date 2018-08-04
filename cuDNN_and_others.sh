@@ -5,7 +5,7 @@
 tar -xzvf cudnn-9.0-linux-x64-v7.1.tgz
 sudo cp -P cuda/include/cudnn.h /usr/local/cuda-9.0/include
 sudo cp -P cuda/lib64/libcudnn* /usr/local/cuda-9.0/lib64/
-sudo chmod a+r /usr/local/cuda-9.0/lib64/libcudnn*
+sudo chmod a+r /usr/local/cuda-9.0/lib64/libcudnn* /usr/local/cuda-9.0/lib64/libcudnn*
 
 # Update and Upgrade
 sudo apt-get -y update
