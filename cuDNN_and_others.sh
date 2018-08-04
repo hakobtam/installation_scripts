@@ -13,10 +13,14 @@ sudo apt-get -y upgrade
 
 # Install Dependencies
 sudo apt-get install -y vim
+sudo apt-get install -y git
+
 sudo apt-get install -y libncurses5-dev
 sudo apt-get install -y python-pip
 sudo apt-get install -y python3-pip
 sudo apt-get install -y python2.7-dev python3.5-dev
+sudo apt-get install -y python-wheel
+sudo apt-get install -y python3-wheel
 sudo apt-get install -y build-essential cmake pkg-config
 sudo apt-get install -y libjpeg8-dev libtiff5-dev libjasper-dev libpng12-dev
 sudo apt-get install -y libavcodec-dev libavformat-dev libswscale-dev libv4l-dev
@@ -65,7 +69,7 @@ pip install torchvision
 python -m pip install pymongo
 pip install tqdm
 pip install Click
-pip install --upgrade tensorflow-gpu
+pip install --upgrade tensorflow-gpu==1.8.0
 # Install keras from source
 git clone https://github.com/fchollet/keras.git
 cd keras
@@ -125,7 +129,7 @@ pip install torchvision
 python -m pip install pymongo
 pip install tqdm
 pip install Click
-pip install --upgrade tensorflow-gpu
+pip install --upgrade tensorflow-gpu==1.8.0
 # Install keras from source
 git clone https://github.com/fchollet/keras.git
 cd keras
