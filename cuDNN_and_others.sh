@@ -1,7 +1,16 @@
 #!/bin/bash
 
+echo "export LANGUAGE=en_US.UTF-8" >> ~/.bashrc
+echo "export LC_ALL=en_US.UTF-8" >> ~/.bashrc
+echo "export LANG=en_US.UTF-8" >> ~/.bashrc
+echo "export LC_TYPE=en_US.UTF-8" >> ~/.bashrc
+source ~/.bashrc
+source ~/.bashrc
 # Install cudnn
-# First you should get installation .tgz file
+# Getting installation .tgz file
+sudo chmod +x download_script.sh
+./download_script.sh 1yX9HwptO7dRQOgOTaAKe5xP7T9K1uYqp cudnn-9.0-linux-x64-v7.1.tgz
+
 tar -xzvf cudnn-9.0-linux-x64-v7.1.tgz
 sudo cp -P cuda/include/cudnn.h /usr/local/cuda-9.0/include
 sudo cp -P cuda/lib64/libcudnn* /usr/local/cuda-9.0/lib64/
@@ -46,10 +55,10 @@ sudo apt-get install -y libjpeg8 libjpeg62-dev libfreetype6 libfreetype6-dev
 
 sudo pip install virtualenv     # Install virtual environment
 cd ~
-wget -O opencv.zip https://github.com/Itseez/opencv/archive/3.3.0.zip   # Download OpenCV 3.3.0
-unzip opencv.zip
-wget -O opencv_contrib.zip https://github.com/Itseez/opencv_contrib/archive/3.3.0.zip   # Download OpenCV 3.3.0 Contrib
-unzip opencv_contrib.zip
+wget https://github.com/opencv/opencv/archive/3.4.0.zip -O opencv-3.4.0.zip   # Download OpenCV 3.3.0
+unzip opencv-3.4.0.zip
+wget https://github.com/opencv/opencv_contrib/archive/3.4.0.zip -O opencv_contrib-3.4.0.zip   # Download OpenCV 3.3.0 Contrib
+unzip opencv_contrib-3.4.0.zip
 
 
 ###################################
@@ -63,7 +72,7 @@ pip install -U nltk
 pip install pillow
 pip install h5py
 pip install kaggle-cli
-pip install scikit-image
+pip install scikit-image==0.13.1
 pip install http://download.pytorch.org/whl/cu80/torch-0.2.0.post3-cp35-cp35m-manylinux1_x86_64.whl
 pip install torchvision
 python -m pip install pymongo
@@ -78,7 +87,7 @@ cd ..
 rm -rf keras
 
 # Download OpenCV source and install
-cd ~/opencv-3.3.0/
+cd ~/opencv-3.4.0/
 mkdir build
 cd build
 cmake -D CMAKE_BUILD_TYPE=RELEASE \
@@ -89,7 +98,7 @@ cmake -D CMAKE_BUILD_TYPE=RELEASE \
       -D WITH_CUBLAS=1 \
       -D INSTALL_PYTHON_EXAMPLES=ON \
       -D INSTALL_C_EXAMPLES=OFF \
-      -D OPENCV_EXTRA_MODULES_PATH=~/opencv_contrib-3.3.0/modules \
+      -D OPENCV_EXTRA_MODULES_PATH=~/opencv_contrib-3.4.0/modules \
       -D PYTHON_EXECUTABLE=~/venv3/bin/python \
       -D BUILD_EXAMPLES=ON ..
 make -j8
@@ -101,13 +110,13 @@ cd ~/venv3/lib/python3.5/site-packages/
 ln -s /usr/local/lib/python3.5/site-packages/cv2.so cv2.so
 deactivate
 
-rm -rf ~/opencv-3.3.0/build
+rm -rf ~/opencv-3.4.0/build
 
 jupyter notebook --generate-config
 echo -e "c = get_config()" >> ~/.jupyter/jupyter_notebook_config.py
-#echo -e "c.NotebookApp.ip = '*'" >> ~/.jupyter/jupyter_notebook_config.py
+echo -e "c.NotebookApp.ip = '*'" >> ~/.jupyter/jupyter_notebook_config.py
 echo -e "c.NotebookApp.open_browser = False" >> ~/.jupyter/jupyter_notebook_config.py
-#echo -e "c.NotebookApp.port = 7000" >> ~/.jupyter/jupyter_notebook_config.py
+echo -e "c.NotebookApp.port = 8888" >> ~/.jupyter/jupyter_notebook_config.py
 
 cd ~
 
@@ -120,6 +129,7 @@ pip install numpy scipy matplotlib ipython jupyter pandas sympy nose
 pip install -U scikit-learn
 pip install -U nltk
 pip install pillow
+pip install scikit-image==0.13.1
 pip install h5py
 pip install kaggle-cli
 pip install scikit-image
@@ -139,29 +149,35 @@ rm -rf keras
 
 
 # Download OpenCV source and install
-cd ~/opencv-3.3.0/
-mkdir build
-cd build
-cmake -D CMAKE_BUILD_TYPE=RELEASE \
-      -D CMAKE_INSTALL_PREFIX=/usr/local \
-      -D WITH_CUDA=ON \
-      -D ENABLE_FAST_MATH=1 \
-      -D CUDA_FAST_MATH=1 \
-      -D WITH_CUBLAS=1 \
-      -D INSTALL_PYTHON_EXAMPLES=ON \
-      -D INSTALL_C_EXAMPLES=OFF \
-      -D OPENCV_EXTRA_MODULES_PATH=~/opencv_contrib-3.3.0/modules \
-      -D PYTHON_EXECUTABLE=~/venv2/bin/python \
-      -D BUILD_EXAMPLES=ON ..
-make -j8
-sudo make install
-sudo ldconfig
-cd ~/venv2/lib/python2.7/site-packages/
-ln -s /usr/local/lib/python2.7/site-packages/cv2.so cv2.so
+# cd ~/opencv-3.4.0/
+# mkdir build
+# cd build
+# cmake -D CMAKE_BUILD_TYPE=RELEASE \
+#       -D CMAKE_INSTALL_PREFIX=/usr/local \
+#       -D WITH_CUDA=ON \
+#       -D ENABLE_FAST_MATH=1 \
+#       -D CUDA_FAST_MATH=1 \
+#       -D WITH_CUBLAS=1 \
+#       -D INSTALL_PYTHON_EXAMPLES=ON \
+#       -D INSTALL_C_EXAMPLES=OFF \
+#       -D OPENCV_EXTRA_MODULES_PATH=~/opencv_contrib-3.4.0/modules \
+#       -D PYTHON_EXECUTABLE=~/venv2/bin/python \
+#       -D BUILD_EXAMPLES=ON ..
+# make -j8
+# sudo make install
+# sudo ldconfig
+# cd ~/venv2/lib/python2.7/site-packages/
+# ln -s /usr/local/lib/python2.7/site-packages/cv2.so cv2.so
+
 deactivate
 
+# rm -rf ~/opencv-3.4.0/build
+
 echo "alias \"v3=source ~/venv3/bin/activate\"" >> ~/.bashrc
-echo "alias \"v2=source ~/venv3/bin/activate\"" >> ~/.bashrc
+echo "alias \"v2=source ~/venv2/bin/activate\"" >> ~/.bashrc
+
+echo "alias ll='ls -lhF'" >> ~/.bashrc
+source ~/.bashrc
 source ~/.bashrc
 
 # Clean Up

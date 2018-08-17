@@ -18,6 +18,6 @@ sudo dpkg -i ${CUDA_PATCH1}
 sudo apt-get update
 
 # .bachrc
-echo -e "export PATH=/usr/local/cuda-9.0/bin:$PATH" >> ~/.bashrc
-echo -e "export LD_LIBRARY_PATH=/usr/local/cuda-9.0/lib64\${LD_LIBRARY_PATH:+:${LD_LIBRARY_PATH}}" >> ~/.bashrc
+echo -e "export PATH=/usr/local/cuda-9.0/bin\${PATH:+:\${PATH}}" >> ~/.bashrc
+echo -e "export LD_LIBRARY_PATH=/usr/local/cuda-9.0/lib64\${LD_LIBRARY_PATH:+:\${LD_LIBRARY_PATH}}" >> ~/.bashrc
 source ~/.bashrc
