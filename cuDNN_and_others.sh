@@ -1,11 +1,5 @@
 #!/bin/bash
 
-echo "export LANGUAGE=en_US.UTF-8" >> ~/.bashrc
-echo "export LC_ALL=en_US.UTF-8" >> ~/.bashrc
-echo "export LANG=en_US.UTF-8" >> ~/.bashrc
-echo "export LC_TYPE=en_US.UTF-8" >> ~/.bashrc
-source ~/.bashrc
-source ~/.bashrc
 # Install cudnn
 # Getting installation .tgz file
 sudo chmod +x download_script.sh
@@ -101,7 +95,7 @@ cmake -D CMAKE_BUILD_TYPE=RELEASE \
       -D OPENCV_EXTRA_MODULES_PATH=~/opencv_contrib-3.4.0/modules \
       -D PYTHON_EXECUTABLE=~/venv3/bin/python \
       -D BUILD_EXAMPLES=ON ..
-make -j8
+make -j12
 sudo make install
 sudo ldconfig
 cd /usr/local/lib/python3.5/site-packages/
@@ -176,8 +170,6 @@ deactivate
 echo "alias \"v3=source ~/venv3/bin/activate\"" >> ~/.bashrc
 echo "alias \"v2=source ~/venv2/bin/activate\"" >> ~/.bashrc
 
-echo "alias ll='ls -lhF'" >> ~/.bashrc
-source ~/.bashrc
 source ~/.bashrc
 
 # Clean Up
