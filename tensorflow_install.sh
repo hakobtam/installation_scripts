@@ -1,6 +1,6 @@
 #http://www.python36.com/how-to-install-tensorflow-gpu-with-cuda-9-2-for-python-on-ubuntu/2/
 source ~/venv3/bin/activate
-
+./download_script.sh 11_BD9hU2OelbeCcTholye8EdV4MFTVv- nccl_2.2.13-1+cuda9.0_x86_64.txz
 #Install NCCL
 tar -xf nccl_2.2.13-1+cuda9.0_x86_64.txz
 cd nccl_2.2.13-1+cuda9.0_x86_64
