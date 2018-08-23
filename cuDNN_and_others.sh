@@ -67,12 +67,11 @@ pip install pillow
 pip install h5py
 pip install kaggle-cli
 pip install scikit-image==0.13.1
-pip install http://download.pytorch.org/whl/cu80/torch-0.2.0.post3-cp35-cp35m-manylinux1_x86_64.whl
-pip install torchvision
+pip install torch torchvision
 python -m pip install pymongo
 pip install tqdm
 pip install Click
-# pip install --upgrade tensorflow-gpu==1.8.0
+# pip install  tensorflow-gpu==1.8.0
 # # Install keras from source
 # git clone https://github.com/fchollet/keras.git
 # cd keras
@@ -128,12 +127,11 @@ pip install h5py
 pip install kaggle-cli
 pip install scikit-image
 
-pip install http://download.pytorch.org/whl/cu80/torch-0.2.0.post3-cp35-cp35m-manylinux1_x86_64.whl
-pip install torchvision
+pip install torch torchvision
 python -m pip install pymongo
 pip install tqdm
 pip install Click
-pip install --upgrade tensorflow-gpu==1.8.0
+pip install tensorflow-gpu==1.8.0
 # Install keras from source
 git clone https://github.com/fchollet/keras.git
 cd keras
@@ -182,7 +180,6 @@ echo "********************************************************"
 echo "*****  End of Google Cloud Set-up Script  	  ********"
 echo "*****  If there is no errors following    	  ********"
 echo "*****  Python Learning libraries are installed. ********"
-echo "*****  OpenCV 3.4.0, Tensorflow, pytorch, Keras ********"
 echo "********************************************************"
 echo ""
 echo "You can check if everything were installed successfully."
@@ -192,7 +189,7 @@ echo "                                                        "
 echo "2- run 'ipython' on Terminal to enter ipython."
 echo "                                                        "
 echo "3- If you can import following libraries everything was fine."
-echo "	- In the ipython run 'import tensorflow', 'import keras', 'import cv2', 'import torch'."
+echo "	- In the ipython run 'import cv2', 'import torch'."
 echo "	- If there is no errors, libraries were installed."
 echo "                                                        "
 echo "4- To exit from ipython run 'exit', and to deactivate venv run 'deactivate' on Terminal."
