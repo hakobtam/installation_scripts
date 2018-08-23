@@ -36,3 +36,10 @@ bazel build --config=opt //tensorflow/tools/pip_package:build_pip_package
 bazel-bin/tensorflow/tools/pip_package/build_pip_package tensorflow_pkg
 cd tensorflow_pkg
 pip install tensorflow*.whl
+
+# Install keras from source
+git clone https://github.com/fchollet/keras.git
+cd keras
+python setup.py install
+cd ..
+rm -rf keras

@@ -72,13 +72,13 @@ pip install torchvision
 python -m pip install pymongo
 pip install tqdm
 pip install Click
-pip install --upgrade tensorflow-gpu==1.8.0
-# Install keras from source
-git clone https://github.com/fchollet/keras.git
-cd keras
-python setup.py install
-cd ..
-rm -rf keras
+# pip install --upgrade tensorflow-gpu==1.8.0
+# # Install keras from source
+# git clone https://github.com/fchollet/keras.git
+# cd keras
+# python setup.py install
+# cd ..
+# rm -rf keras
 
 # Download OpenCV source and install
 cd ~/opencv-3.4.0/
