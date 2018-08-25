@@ -1,6 +1,6 @@
 # installation_scripts
 
-Scripts to set up a new virtual machine and install packages like CUDA, cuDNN, opencv, etc.
+Scripts to set up a new virtual machine and install packages like CUDA, cuDNN, opencv, tensorflow, etc.
 
 Run these commands in bash shell:
 ```
