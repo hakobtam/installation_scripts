@@ -68,6 +68,7 @@ pip install h5py
 pip install kaggle-cli
 pip install scikit-image==0.13.1
 pip install torch torchvision
+pip install git+https://github.com/aleju/imgaug
 python -m pip install pymongo
 pip install tqdm
 pip install Click
@@ -128,6 +129,7 @@ pip install kaggle-cli
 pip install scikit-image
 
 pip install torch torchvision
+pip install git+https://github.com/aleju/imgaug
 python -m pip install pymongo
 pip install tqdm
 pip install Click
