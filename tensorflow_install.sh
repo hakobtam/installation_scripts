@@ -21,7 +21,6 @@ chmod +x bazel-0.14.0-installer-linux-x86_64.sh
 ./bazel-0.14.0-installer-linux-x86_64.sh --user
 echo 'export PATH="$PATH:$HOME/bin"' >> ~/.bashrc
 
-source ~/.bashrc
 sudo ldconfig
 
 #Downloading tensorflow 1.8.0
